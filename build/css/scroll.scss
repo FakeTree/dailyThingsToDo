@@ -1,0 +1,19 @@
+$lightRed: #ff7979;
+$grey: #535c68;
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $grey; 
+  border-radius: 10px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $grey; 
+}

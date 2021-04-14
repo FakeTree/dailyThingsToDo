@@ -1,0 +1,146 @@
+$uncompletedColour: #eb4d4b;
+$grey: #535c68;
+$lightRed: #ff7979;
+$textColor: #130f40;
+$value: none;
+
+*{
+    padding:0;
+    margin:0;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+body{
+    background-color: $uncompletedColour;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+input {
+    background-color: transparent;
+    border: none;
+    display: inline-block;
+    border-bottom: 1px solid $grey !important;
+    color: $textColor;
+    transition: 0.2s;
+
+    &#title{
+        height: 4vh;
+        width: 10vw;
+    }
+    &#text{
+        height: 4vh;
+        width: 30vw;
+    }
+
+    &:hover {
+        border-bottom: 1px solid $textColor !important;
+    }
+    
+    &:focus {
+        outline: none;
+        border-bottom: 1px solid $textColor !important;
+    }
+}
+
+.inputContainers{
+    display:inline-block;
+    position: relative;
+    width: auto;
+    padding-bottom: 2em;
+    margin: 0 5vw 0 0;
+    &[cpp]::after{
+        content: attr(cpp);
+        display: block;
+        position: absolute;
+        margin-top: -1.5em;
+        color: $textColor;
+        transition: 0.2s;
+    }
+    &[cpp].changed::after{
+        content: '';
+        display: block;
+        position: absolute;
+        margin-top: 0.5em;
+        opacity: 0;
+        transition: 0.2s;
+    }
+    &[cpp]:focus-within::after{
+        content: attr(cpp);
+        opacity: 1;
+        margin-top: 0.5em;
+    }
+    &[cpp]:hover::after{
+        content: attr(cpp);
+        opacity: 1;
+        margin-top: 0.5em;
+    }
+}
+
+h1 {
+    color: $textColor;
+    text-align: center;
+    font-size: 6em;
+    text-transform: uppercase;
+
+    &.title::after{
+        content: '';
+        display: block;
+        width:100%;
+        height: 1px;
+        background-color: $lightRed;
+        margin-top: 20px;
+    }
+}
+
+#wrapper{
+    overflow-y: scroll;
+    padding: 2vw 8vh;
+    height: 75vh;
+}
+
+h2 {
+    color: $textColor;
+    text-align: center;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+#createNewElement{
+    display: block;
+    padding: 2em;
+    border: 1px solid $textColor;
+}
+
+div#loadSubTasks {
+    width: 2vw;
+    height: 1vw;
+    padding: 0.5vh 1vw;
+    background-color: $lightRed;
+    display: inline-block;
+    margin-right: 2px;
+    margin-bottom: 2em;
+    text-align: justify;
+}
+
+.unsignedContainer{
+    width: 100%;
+    height: 10vh;
+    display: block;  
+    padding: 5vh 0; 
+
+    &::after{
+        content: '';
+        display: block;
+        width:100%;
+        height: 1px;
+        background-color: $lightRed;
+    }
+}
+
+.ownership{
+    color:$lightRed;
+}

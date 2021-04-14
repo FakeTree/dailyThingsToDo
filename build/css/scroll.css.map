@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAGA,WAAW;AACX,AAAA,mBAAmB,CAAC;EAChB,KAAK,EAAE,GAAG;CACb;;AAED,YAAY;AACZ,AAAA,yBAAyB,CAAC;EACxB,UAAU,EATL,OAAO;EAUZ,aAAa,EAAE,IAAI;CAEpB;;AAED,qBAAqB;AACrB,AAAA,yBAAyB,AAAA,MAAM,CAAC;EAC9B,UAAU,EAhBL,OAAO;CAiBb",
+    "sources": [
+        "scroll.scss"
+    ],
+    "names": [],
+    "file": "scroll.css"
+}

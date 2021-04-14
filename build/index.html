@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Put your description here.">
+        <title>To Do List</title>
+
+        <link rel="stylesheet" href="./css/style.css"/>
+        <link rel="stylesheet" href="./css/scroll.css"/>
+
+            <!-- scripts -->
+        <script src="./js/taskFetch.js" defer></script>
+        <script src="./js/inputHandler.js" defer></script>
+    </head>
+    <body>
+        <div id="element">
+            <!-- Title -->
+            <h1 class="title"> Things To Do </h1>
+            <!-- contains all of the elements that have been filled out -->
+            <div id="wrapper">
+                <div id="signedItem" class="signedItem">
+                    
+                </div>
+                <!-- Creating new element -->
+                <div id="createNewElement">
+                    <h2>Create New Item</h2>
+                </div>
+            </div>
+            <span class="ownership">Created by William Halliday</span>
+        </div>
+    </body>
+
+    <!-- Create New when create new element button is pressed -->
+    <template id="unsignedContainer">
+        <div id="unsignedItem" class="unsignedContainer">
+            <form>
+                <div id="titleContainer" class="inputContainers" cpp="Title"><input id="title" class="input" onchange="inputChange()" autocomplete="off"/></div>
+                <div id="textContainer" class="inputContainers" cpp="Description"><input id="text" class="input" onchange="inputChange()" autocomplete="off"/></div>
+                <div id="loadSubTasks">&#9660;Task</span></div>
+            </form>
+        </div>
+    </template>
+
+    <script src="./js/observer.js" defer></script>
+    
+    </html>
