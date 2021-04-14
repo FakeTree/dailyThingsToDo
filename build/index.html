@@ -33,13 +33,24 @@
     <!-- Create New when create new element button is pressed -->
     <template id="unsignedContainer">
         <div id="unsignedItem" class="unsignedContainer">
-            <form>
+            <form taskMainHead>
                 <div id="titleContainer" class="inputContainers" cpp="Title"><input id="title" class="input" onchange="inputChange()" autocomplete="off"/></div>
                 <div id="textContainer" class="inputContainers" cpp="Description"><input id="text" class="input" onchange="inputChange()" autocomplete="off"/></div>
-                <div id="loadSubTasks">&#9660;Task</span></div>
+                <div id="loadSubTasks">&#9660;Task</div>
             </form>
+            <div id="subTaskContainer" class="unsignedSubContainer"></div>
         </div>
     </template>
+
+    <template id="unsignedSubItem">
+        <form element="subItem">
+            <div elementNumber></div>
+            <div class="inputContainers" cpp="Title"><input id="subtitle" class="input" onchange="inputChange()" autocomplete="off"/></div>
+            <div class="inputContainers" cpp="Description"><input id="subtext" class="input" onchange="inputChange()" autocomplete="off"/></div>
+            <input type="checkbox">
+        </form>
+    </template>
+    
 
     <script src="./js/observer.js" defer></script>
     
