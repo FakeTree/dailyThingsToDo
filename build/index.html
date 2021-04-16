@@ -33,21 +33,22 @@
     <!-- Create New when create new element button is pressed -->
     <template id="unsignedContainer">
         <div id="unsignedItem" class="unsignedContainer">
-            <form taskMainHead>
-                <div id="titleContainer" class="inputContainers" cpp="Title"><input id="title" class="input" onchange="inputChange()" autocomplete="off"/></div>
-                <div id="textContainer" class="inputContainers" cpp="Description"><input id="text" class="input" onchange="inputChange()" autocomplete="off"/></div>
-                <div id="loadSubTasks">&#9660;Task</div>
+            <form id="taskMainHead" class="taskMain" taskMainHead>
+                <div taskContainer="true" id="titleContainer" class="inputContainers" cpp="Title"><input taskInput="true" inputElem="Title" class="input" onchange="inputChange()" autocomplete="off"/></div>
+                <div taskContainer="true" id="textContainer" class="inputContainers" cpp="Description"><input taskInput="true" inputElem="Description" class="input" onchange="inputChange()" autocomplete="off"/></div>
+                <div id="loadSubTasks">+Task</div>
+                <div class="dropDown">&#9660;</div>
             </form>
-            <div id="subTaskContainer" class="unsignedSubContainer"></div>
+            <div id="subTaskContainer" class="unsignedSubContainer openSubTasks" desiredHeight="0" isOpen="true"></div>
         </div>
     </template>
 
     <template id="unsignedSubItem">
-        <form element="subItem">
-            <div elementNumber></div>
-            <div class="inputContainers" cpp="Title"><input id="subtitle" class="input" onchange="inputChange()" autocomplete="off"/></div>
-            <div class="inputContainers" cpp="Description"><input id="subtext" class="input" onchange="inputChange()" autocomplete="off"/></div>
-            <input type="checkbox">
+        <form element="subItem" class="subTaskContainer">
+            <div inputElem="subID" elementNumber></div>
+            <div taskContainer="true" class="inputContainers" cpp="Title"><input taskInput="true" inputElem="subTitle" class="input" onchange="inputChange()" autocomplete="off"/></div>
+            <div taskContainer="true" class="inputContainers" cpp="Description"><input taskInput="true" inputElem="subDescription" class="input" onchange="inputChange()" autocomplete="off"/></div>
+            <input inputElem="subCheck" type="checkbox" >
         </form>
     </template>
     

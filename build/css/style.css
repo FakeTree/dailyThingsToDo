@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #eb4d4b;
+  background-color: #1b1b25;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,7 +24,7 @@ input {
   border: none;
   display: inline-block;
   border-bottom: 1px solid #535c68 !important;
-  color: #130f40;
+  color: #ffffff;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
@@ -40,12 +40,12 @@ input#text {
 }
 
 input:hover {
-  border-bottom: 1px solid #130f40 !important;
+  border-bottom: 1px solid #ffffff !important;
 }
 
 input:focus {
   outline: none;
-  border-bottom: 1px solid #130f40 !important;
+  border-bottom: 1px solid #ffffff !important;
 }
 
 .inputContainers {
@@ -61,7 +61,7 @@ input:focus {
   display: block;
   position: absolute;
   margin-top: -1.5em;
-  color: #130f40;
+  color: #ffffff;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
@@ -89,7 +89,7 @@ input:focus {
 }
 
 h1 {
-  color: #130f40;
+  color: #ffffff;
   text-align: center;
   font-size: 6em;
   text-transform: uppercase;
@@ -108,37 +108,86 @@ h1.title::after {
   overflow-y: scroll;
   padding: 2vw 8vh;
   height: 75vh;
+  width: 70vw;
 }
 
 h2 {
-  color: #130f40;
+  color: #ffffff;
   text-align: center;
   font-size: 1.5em;
   text-transform: uppercase;
+  margin: 0;
 }
 
 #createNewElement {
-  display: block;
-  padding: 2em;
-  border: 1px solid #130f40;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  font-size: 1em;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(-30%, #00ff91), color-stop(130%, #9200be)), -webkit-gradient(linear, left top, left bottom, color-stop(-30%, #00ff91), color-stop(130%, #9200be));
+  background: linear-gradient(to bottom, #00ff91 -30%, #9200be 130%), linear-gradient(to bottom, #00ff91 -30%, #9200be 130%);
+  -webkit-transition: 1s ease-out;
+  transition: 1s ease-out;
+  background-size: 1px 200px;
+  border-radius: 10px;
+  border: 1px solid #839DB0;
+  width: 98%;
+  height: 6em;
+}
+
+#createNewElement:hover {
+  font-size: 1.1em;
+  background-position: 100px;
 }
 
 div#loadSubTasks {
   width: 2vw;
   height: 1vw;
   padding: 0.5vh 1vw;
-  background-color: #ff7979;
   display: inline-block;
-  margin-right: 2px;
+  margin-right: 2em;
   margin-bottom: 2em;
   text-align: justify;
+  color: #ffffff;
+}
+
+div#loadSubTasks:hover {
+  background-color: #1b1b25;
+  border: 1px solid #ffffff;
+}
+
+.taskMain {
+  height: 100%;
+  padding: 5vh 0 0 0;
 }
 
 .unsignedContainer {
-  width: 100%;
+  width: 95%;
   height: auto;
   display: block;
-  padding: 5vh 0;
+  padding: 0 1.27em;
+  border-top: 1px solid #3ACFD5;
+  border-bottom: 1px solid #3a4ed5;
+  background-position: 0 0, 100% 0;
+  background-repeat: no-repeat;
+  background-size: 20px 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(-30%, #00ff91), color-stop(130%, #9200be)), -webkit-gradient(linear, left top, left bottom, color-stop(-30%, #00ff91), color-stop(130%, #9200be));
+  background-image: linear-gradient(to bottom, #00ff91 -30%, #9200be 130%), linear-gradient(to bottom, #00ff91 -30%, #9200be 130%);
+  margin-bottom: 2em;
+  counter-reset: taskCount;
+  cursor: pointer;
 }
 
 .unsignedContainer::after {
@@ -146,28 +195,47 @@ div#loadSubTasks {
   display: block;
   width: 100%;
   height: 1px;
-  background-color: #ff7979;
+}
+
+.unsignedContainer form.subTaskContainer:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.unsignedContainer form:hover {
+  background: white;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(80%, rgba(255, 255, 255, 0.01)), to(rgba(255, 255, 255, 0.05)));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.01) 80%, rgba(255, 255, 255, 0.05) 100%);
 }
 
 .unsignedSubContainer {
-  width: 100%;
-  height: 0;
+  width: 80%;
+  height: auto;
   display: block;
   overflow: hidden;
-  margin-bottom: 2em;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-  background-color: #ff7979;
+  margin-left: 20%;
+  height: 0;
+  -webkit-transition: height 0.4s;
+  transition: height 0.4s;
+  background-color: rgba(255, 255, 255, 0.2);
   counter-reset: subTaskCount;
 }
 
 .unsignedSubContainer form::before {
   counter-increment: subTaskCount;
-  content: counter(subTaskCount);
+  content: "SubTask " counter(subTaskCount);
 }
 
-.openSubTasks {
-  height: auto;
+.unsignedSubContainer.openSubTasks {
+  height: var(--desired-height);
+}
+
+.subTaskContainer {
+  height: 6em;
+}
+
+.dropDown {
+  width: 100%;
+  text-align: center;
 }
 
 .ownership {

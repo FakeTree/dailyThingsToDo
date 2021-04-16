@@ -11,7 +11,7 @@ router.get('/', async (req,res)=>{
 })
 // Get one
 router.get('/:id', getTask, (req,res)=>{
-    res.send(res.task)
+    res.json(res.task);
 })
 // Creating one
 router.post('/', async (req,res)=>{
@@ -27,10 +27,48 @@ router.post('/', async (req,res)=>{
         res.status(201).json(newTask)
     }catch(err){res.status(400).json({ message: err.message})}
 })
+
 // Update one
-router.patch('/:id', (req,res)=>{})
+router.patch('/:id', getTask, async (req,res)=>{
+    if(req.body.name!= null){
+        res.task.name = req.body.name;
+    }
+    if(req.body.taskTitle!= null){
+        res.task.taskTitle = req.body.taskTitle;
+    }
+    if(req.body.taskDescription!= null){
+        res.task.taskDescription = req.body.taskDescription;
+    }
+    if(req.body.subTasks?.subTasksID!= null){
+        res.task.subTasks.subTasksID = req.body.subTasks.subTasksID;
+    }
+    if(req.body.subTasks?.subTasksName!= null){
+        res.task.subTasks.subTasksName = req.body.subTasks.subTasksName;
+    }
+    if(req.body.subTasks?.subTasksDescription!= null){
+        res.task.subTasks.subTasksDescription = req.body.subTasks.subTasksDescription;
+    }
+    if(req.body.subTasks?.subTasksChecked!= null){
+        res.task.subTasks.subTasksChecked = req.body.subTasks.subTasksChecked;
+    }
+
+    try{
+        const updateTask = await res.task.save()
+        res.json(updateTask)
+    }catch(err){
+        res.status(400).json({ message: err.message })
+    }
+})
+
 // Delete
-router.delete('/:id', (req,res)=>{})
+router.delete('/:id', getTask, async (req,res)=>{
+    try{
+        await res.task.remove()
+        res.json({ message: "deleted task" })
+    } catch (err){
+        res.status(500).json({ message: err.message })
+    }
+})
 
 async function getTask(req, res, next){
     let task;

@@ -1,19 +1,7 @@
 const mongoose = require('mongoose')
 
-const tasksSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    taskTitle: {
-        type: String,
-        required: true
-    },
-    taskDescription: {
-        type: String,
-        required: true
-    },
-    subTasks: {
+const subTaskSchema = new mongoose.Schema(
+    {
         subTasksID: {
             type: String,
             required: true,
@@ -30,7 +18,22 @@ const tasksSchema = new mongoose.Schema({
             type: Boolean,
             required: false,
         }
-    }
+    })
+
+const tasksSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    taskTitle: {
+        type: String,
+        required: true
+    },
+    taskDescription: {
+        type: String,
+        required: true
+    },
+    subTasks: [subTaskSchema]
 })
 
 module.exports = mongoose.model('Task', tasksSchema)

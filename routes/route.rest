@@ -3,7 +3,7 @@ GET http://localhost:3000/tasks
 
 ###
 
-GET http://localhost:3000/tasks/607674fd2003793524b7a1a0
+GET http://localhost:3000/tasks/6078fff0bc03ba229cdda7d2
 
 ###
 
@@ -11,13 +11,51 @@ POST http://localhost:3000/tasks
 Content-Type: application/json
 
 {
-    "name": "william",
-    "taskTitle": "morning routine",
-    "taskDescription": "this will list out all the activities I need to do in the morning",
-    "subTasks":{
-        "subTasksID":"1",
-        "subTasksName":"",
-        "subTasksDescription":"",
-        "subTasksChecked": false
-    }
+    "name": "William Halliday",
+    "taskTitle": "Morning Routine",
+    "taskDescription": "This will list out all the activities I need to do in the morning",
+    "subTasks":[
+        {
+            "subTasksID":"0",
+            "subTasksName":"Almonds",
+            "subTasksDescription":"Eat 10 Almonds",
+            "subTasksChecked": false
+        },
+        {
+            "subTasksID":"1",
+            "subTasksName":"Drink Water",
+            "subTasksDescription":"Drink 500ml of water before eating",
+            "subTasksChecked": true
+        },
+        {
+            "subTasksID":"2",
+            "subTasksName":"Eat an Apple",
+            "subTasksDescription":"Eat on apple with the other items in this list",
+            "subTasksChecked": true
+        },
+        {
+            "subTasksID":"3",
+            "subTasksName":"Take Probiotic Supplement",
+            "subTasksDescription":"Take a probiotic supplement with the water",
+            "subTasksChecked": false
+        }
+    ]
+}
+
+###
+
+DELETE http://localhost:3000/tasks/607975d8e540416504aa37e2
+
+###
+
+PATCH  http://localhost:3000/tasks/6078fff0bc03ba229cdda7d2
+Content-Type: application/json
+
+{
+    "name": "i am william again",
+    "subTasks":[
+        {
+        "subTasksName":"Testing the waters"
+        }
+    ]
 }
